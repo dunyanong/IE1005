@@ -1,20 +1,18 @@
 #include <stdio.h>
 #include <math.h>
+#define ACCELERATION 9.81
 
 int main(void) {
-    int myArray[25] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100,
-                       110, 120, 130, 140, 150, 160, 170, 180, 190, 200,
-                       210, 220, 230, 240, 250};
+    double time = 0, max_time = 4, interval = 0.5;
+    double distance;
 
-    int max;
-    max = myArray[0];
+    printf("Time elapses, Distance Tavelled \n");
+    printf("--------------------------------------------- \n");
 
-    for (int i = 0; i < sizeof(myArray) / sizeof(myArray[0]); i++) {
-        if (max < myArray[i]) {
-            max = myArray[i];
-        }
+    while ( time <= max_time ) {
+        distance = 0.5 * ACCELERATION * time * time;
+        printf("%lf , %lf \n", time, distance);
+
+        time = time + interval;
     }
-
-    printf("Max Number: %d \n", max);
-    return 0;
 }
