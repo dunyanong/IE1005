@@ -2,32 +2,19 @@
 #include <math.h>
 
 int main(void) {
-    double a, b, c, root1, root2;
+    int myArray[25] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100,
+                       110, 120, 130, 140, 150, 160, 170, 180, 190, 200,
+                       210, 220, 230, 240, 250};
 
-    printf("value of a: \n");
-    scanf("%lf", &a);
+    int max;
+    max = myArray[0];
 
-    if (a == 0) {
-        printf("Please input a non zero value of a \n");
-        return 1;
+    for (int i = 0; i < sizeof(myArray) / sizeof(myArray[0]); i++) {
+        if (max < myArray[i]) {
+            max = myArray[i];
+        }
     }
 
-    printf("value of b: \n");
-    scanf("%lf", &b);
-
-    printf("value of c: \n");
-    scanf("%lf", &c);
-
-    double discriminant = b*b - 4*a*c;
-
-    if (discriminant < 0) {
-        printf("The roots are not real.");
-        return 1;
-    }
-
-    root1 = (-b+sqrt(discriminant))/(2*a);
-    root2 = (-b-sqrt(discriminant))/(2*a);
-
-    printf("The roots are %lf and %lf \n", root1, root2);
+    printf("Max Number: %d \n", max);
     return 0;
 }
