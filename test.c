@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include <math.h>
-#define ACCELERATION 9.81
 
 int main(void) {
-    double time = 0, max_time = 4, interval = 0.5;
-    double distance;
+    int X, x, sum;
+    
+    printf("Enter the value of X:");
+    scanf("%d", &X);
 
-    printf("Time elapses, Distance Tavelled \n");
-    printf("--------------------------------------------- \n");
-
-    while ( time <= max_time ) {
-        distance = 0.5 * ACCELERATION * time * time;
-        printf("%lf , %lf \n", time, distance);
-
-        time = time + interval;
-    }
+    printf("Enter the value of x:");
+    scanf("%d", &x);
+    sum = X + x;
+    printf("The sum of %d and %d is %d\n", X, x, sum);
+    
+    return 0;
 }
