@@ -1,36 +1,26 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 int main(void) {
-    // it must be odd number to reflect
-    int myArray[25] = {160, 190, 100, 70, 50, 220, 120, 200, 30, 130,
-                        180, 100, 100, 100, 40, 80, 240, 110, 100, 170,
-                        10, 140, 60, 230, 20};
 
-    printf("---------------Original array: \n");
-    for (int i = 0; i < sizeof(myArray) / sizeof(myArray[0]); i++) {
-        printf("%d ", myArray[i]);
-    }
-    printf("\n");
+    char stringTest[] = "abcdcba";
 
-    // Two pointers approach
-    int start = 0;
-    int end = sizeof(myArray)/sizeof(myArray[0]) - 1;
+    char failureCase[] = "fjerjwgfjergbfe";
+    
+    // sizeof(stringTest) / sizeof(stringTest[0]) will not work because it is not integer array due to \0 in string array
+    int start = 0, end = strlen(stringTest) - 1;
 
     while (start < end) {
-        int temp = myArray[start];
-        myArray[start] = myArray[end];
-        myArray[end] = temp;
-
+        if (stringTest[start] != stringTest[end]) {
+            printf("Sentence cannot be reflected\n");
+            return 0;
+        }
         start++;
         end--;
     }
-
-    printf("---------------Reversed array: \n");
-    for (int i = 0; i < sizeof(myArray) / sizeof(myArray[0]); i++) {
-        printf("%d ", myArray[i]);
-    }
-    printf("\n");    
-    
+    printf("Sentence can be reflected \n");
     return 0;
+
+
 }
