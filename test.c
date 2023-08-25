@@ -1,24 +1,19 @@
 #include <stdio.h>
 #include <math.h>
+#define HR_TO_MIN  60       /* number of minutes in an hour */
 
 int main(void) {
-    double V, I, R1, R2, R3;
+    double hours = 3, minutes;
 
-    printf("Enter the voltage:");
-    scanf("%lf", &V);
+    /* Read in the hours. */
+    printf("Enter the time in hours > ");
+    scanf ("%lf", &hours);
 
-    printf("Enter the R1:");
-    scanf("%lf", &R1);
+    /* Convert hours to minutes. */
+    minutes = hours * HR_TO_MIN;
 
-    printf("Enter the R2:");
-    scanf("%lf", &R2);
+  /* Display minutes. */
+  printf("The time in minutes is %lf\n\n", minutes);
 
-    printf("Enter the R3:");
-    scanf("%lf", &R3);
-
-    I = V / (R1 + R2 + R3);
-
-    printf("The current is %lf \n", I);
-    
-    return 0;
-}
+  return 0;
+}  
