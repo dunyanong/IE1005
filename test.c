@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <math.h>
-#define HR_TO_MIN  60       /* number of minutes in an hour */
 
 int main(void) {
-    double hours, minutes;
+    int minNumber;
+    int myArray[25] = {160, 190, 100, 70, 50, 220, 120, 200, 30, 130,
+                        180, 210, 250, 150, 40, 80, 240, 110, 90, 170,
+                        10, 140, 60, 230, 20};
 
-    /* Read in the hours. */
-    printf("Enter the time in hours > ");
-    scanf ("%lf", &hours);
+    minNumber = myArray[0];
 
-    /* Convert hours to minutes. */
-    minutes = hours * HR_TO_MIN;
+    for (int i = 0; i < 25; i++) {
+        if (myArray[i] < minNumber) {
+            minNumber = myArray[i];
+        }
+    }
 
-  /* Display minutes. */
-  printf("The time in minutes is %lf\n\n", minutes);
-
+    printf("The smallest number is: %i\n", minNumber);
   return 0;
 }  
