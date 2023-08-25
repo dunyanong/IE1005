@@ -3,7 +3,7 @@
 #define HR_TO_MIN  60       /* number of minutes in an hour */
 
 int main(void) {
-    double hours = 3, minutes;
+    double hours, minutes;
 
     /* Read in the hours. */
     printf("Enter the time in hours > ");
