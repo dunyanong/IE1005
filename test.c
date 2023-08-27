@@ -3,15 +3,21 @@
 #include <string.h>
 
 int main(void) {
-    // convert celsius to fahrenheit:
-    double endCelsius = 100, step = 1;
+    // fibonacci algorithmn
 
-    printf("Celsius ---> Fahrenheit \n");
-    for (double startCelsius = 0; startCelsius < endCelsius + 1; startCelsius+=step) {
-        double F = (startCelsius * 1.8) + 32;
-        printf("%lf ---> %lf \n", startCelsius, F);
+    int initialNumber = 0, secondNumber = 1, result = 0, numOfTerms;
+
+    printf("Number of terms: ");
+    scanf("%d", &numOfTerms);
+
+
+    printf("Number of fibonacci numbers: %d  \n", numOfTerms);
+    for (int i = 0; i < numOfTerms; i++) {
+        printf("%d\n", initialNumber);
+        result = initialNumber + secondNumber;
+        initialNumber = secondNumber;
+        secondNumber = result;
     }
-
 
     return 0;
 }
