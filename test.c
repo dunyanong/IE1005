@@ -3,24 +3,15 @@
 #include <string.h>
 
 int main(void) {
+    // convert celsius to fahrenheit:
+    double endCelsius = 100, step = 1;
 
-    char stringTest[] = "abcdcba";
-
-    char failureCase[] = "fjerjwgfjergbfe";
-    
-    // sizeof(stringTest) / sizeof(stringTest[0]) will not work because it is not integer array due to \0 in string array
-    int start = 0, end = strlen(stringTest) - 1;
-
-    while (start < end) {
-        if (stringTest[start] != stringTest[end]) {
-            printf("Sentence cannot be reflected\n");
-            return 0;
-        }
-        start++;
-        end--;
+    printf("Celsius ---> Fahrenheit \n");
+    for (double startCelsius = 0; startCelsius < endCelsius + 1; startCelsius+=step) {
+        double F = (startCelsius * 1.8) + 32;
+        printf("%lf ---> %lf \n", startCelsius, F);
     }
-    printf("Sentence can be reflected \n");
+
+
     return 0;
-
-
 }
