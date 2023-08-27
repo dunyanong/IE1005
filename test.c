@@ -2,30 +2,16 @@
 #include <math.h>
 #include <string.h>
 
-int fibonacciRecursive(int n);
-
 int main(void) {
-    // fibonacci recursive algorithmn
+    char stringTest[] = "Iphone";
+    int vowelCount = 0;
 
-    int initialNumber = 0, secondNumber = 1, result = 0, numOfTerms;
-
-    printf("Number of terms: ");
-    scanf("%d", &numOfTerms);
-
-
-    printf("Number of fibonacci numbers: %d  \n", numOfTerms);
-    for (int i = 0; i < numOfTerms; i++) {
-        printf("%d\n", fibonacciRecursive(i));
-        
+    for (int i = 0; i < strlen(stringTest); i++) {
+        if (stringTest[i] == 'a' || stringTest[i] == 'e' || stringTest[i] == 'i' || stringTest[i] == 'o' || stringTest[i] == 'u' || stringTest[i] == 'A' || stringTest[i] == 'E' || stringTest[i] == 'I' || stringTest[i] == 'O' || stringTest[i] == 'U') {
+            vowelCount++;
+        }
     }
+    printf("Number of vowel count is: %i \n", vowelCount);
 
     return 0;
-}
-
-int fibonacciRecursive(int n) {
-    if (n <= 1) {
-        return n;
-    }
-
-    return fibonacciRecursive(n-1) + fibonacciRecursive(n-2);
 }
