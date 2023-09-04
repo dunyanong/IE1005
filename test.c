@@ -2,16 +2,26 @@
 #include <math.h>
 #include <string.h>
 
-int main(void) {
-    char stringTest[] = "Iphone";
-    int vowelCount = 0;
+void swap(int *a, int *b);
 
-    for (int i = 0; i < strlen(stringTest); i++) {
-        if (stringTest[i] == 'a' || stringTest[i] == 'e' || stringTest[i] == 'i' || stringTest[i] == 'o' || stringTest[i] == 'u' || stringTest[i] == 'A' || stringTest[i] == 'E' || stringTest[i] == 'I' || stringTest[i] == 'O' || stringTest[i] == 'U') {
-            vowelCount++;
-        }
-    }
-    printf("Number of vowel count is: %i \n", vowelCount);
+int main(void) {
+    int x, y;
+    x = 5;
+    y = 10;
+
+    printf("x: %d, y: %d \n", x, y);
+    swap(&x, &y);
+
+    printf("After swapping: \n");
+    printf("x: %d, y: %d \n", x, y);
 
     return 0;
+}
+
+// using pointers to swap values of two variables
+void swap(int *a, int *b) {
+    int temp = 0;
+    temp = *a;
+    *a = *b;
+    *b = temp; 
 }
