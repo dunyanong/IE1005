@@ -1,12 +1,15 @@
 #include <stdio.h>
 
-int main(void) {
-    printf("         (  )\n");
-    printf("         (oo)\n");
-    printf("  /-------\\/\n");
-    printf(" /  |  %%%% ||\n"); // Escaped % characters
-    printf("*   ||----||\n");
-    printf("    \"\"    \"\"\n");
+int main() {
+    char ch;
+
+    printf("Enter a character: ");
+    
+    // Use getchar() to read a single character/ first character of a string
+    ch = getchar();
+    
+    // Display the character
+    printf("You entered: %c\n", ch);
 
     return 0;
 }
