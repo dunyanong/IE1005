@@ -1,25 +1,20 @@
-/* program style.c for FE1008 hands-on          */
-/* Name:                                      */
-/* Group:                                     */
-/* Date:                                      */
-
 #include <stdio.h>
-#define P_CONST 3.14159
+#include <ctype.h>
 
 int main(void){
-    double radius, area, circumference;
-    
-    /* get the input */  
-    printf("Enter the radius of the circle> ");
-    scanf("%lf", &radius);   
-    /* compute area and circumference */ 
-    area = 2.0 * radius * P_CONST;
-    circumference = P_CONST * radius * radius;       
+    char character;
+    int value;
 
-    /* display the results */
-    printf("radius of circle        = %.2f\n", radius);
-    printf("area of circle          = %.2f\n", area);
-    printf("circumference of circle = %.2f\n", circumference);
+    printf("Enter character: ");
+    scanf("%c", &character);
+
+    value = islower(character);
+
+    if (value == 0) {
+        printf("The given character is not a lowercase letter\n");
+        return 0;
+    }
     
+    printf("The given character IS a lowercase letter\n");
     return 0;
 }
