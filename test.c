@@ -7,19 +7,19 @@
 #define P_CONST 3.14159
 
 int main(void){
-    double r, a, c;
+    double radius, area, circumference;
     
     /* get the input */  
     printf("Enter the radius of the circle> ");
-    scanf("%lf", &r);   
+    scanf("%lf", &radius);   
     /* compute area and circumference */ 
-    a = 2.0 * r * P_CONST;
-    c = P_CONST * r * r;       
+    area = 2.0 * radius * P_CONST;
+    circumference = P_CONST * radius * radius;       
 
     /* display the results */
-    printf("radius of circle        = %.2f\n", r);
-    printf("area of circle          = %.2f\n", a);
-    printf("circumference of circle = %.2f\n", c);
+    printf("radius of circle        = %.2f\n", radius);
+    printf("area of circle          = %.2f\n", area);
+    printf("circumference of circle = %.2f\n", circumference);
     
     return 0;
 }
