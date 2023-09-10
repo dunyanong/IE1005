@@ -1,20 +1,25 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <math.h>
 
 int main(void){
-    char character;
-    int value;
+    double degrees,radians, length_a, length_b, length_c;
+    printf("Enter the angle in degrees :");
+    scanf("%lf",&degrees);
 
-    printf("Enter character: ");
-    scanf("%c", &character);
+    radians = 0.0174532925*degrees;
 
-    value = islower(character);
+    printf("Enter length a :");
+    scanf("%lf",&length_a);
 
-    if (value == 0) {
-        printf("The given character is not a lowercase letter\n");
-        return 0;
-    }
+    printf("Enter length b :");
+    scanf("%lf",&length_b);
+
+    length_c = sqrt(length_a * length_a + length_b * length_b -(2 * length_a * length_b * cos(radians)));
+
+
+    printf("length c is: %lf\n", length_c);
+
     
-    printf("The given character IS a lowercase letter\n");
+
     return 0;
 }
