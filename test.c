@@ -2,34 +2,41 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* BankInterest.c to compute and display interest on bank account */
-
 int main(void) {
-    int period;
-    double amount, int_rate, interest;
+    double num1, num2, result;
+    char operator;
 
-    /* get the input: amount, int_rate, period */
-    printf("Enter the principal amount deposited (in $): ");
-    scanf("%lf", &amount);
-    printf("Enter the basic annual interest rate (in %%): ");
-    scanf("%lf", &int_rate);
-    printf("Enter the deposit period (in months): ");
-    scanf("%d", &period);
+    printf("Enter two numbers and an operator in the form number1 operator number2: ");
+    scanf("%lf %c %lf", &num1, &operator, &num2);
 
-    // conditions:
-    if (period >= 15 && period < 24) {
-        int_rate += 1;
+    // if (operator == '+') {
+    //     result = num1 + num2;
+    // } else if (operator == '-') {
+    //     result = num1 - num2;
+    // } else if (operator == '*' || operator == 'x' || operator == 'X') {
+    //     result = num1 * num2;
+    // } else if (operator == '/') {
+    //     result = num1 / num2;
+    // }
+
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;  
+        case '*':
+            result = num1 * num2;
+            break;   
+        case '/':
+            result = num1 / num2;
+            break;                               
+        default:
+            break;
     }
 
-    if (period >=24) {
-        int_rate += 1.25;
-    }
-
-    /* compute the interest */
-    interest = amount*(int_rate/100.0)*(period/12.0);
-
-    /* output the result */
-    printf("The interest due is $%.2f\n\n", interest);
+    printf("%lf %c %lf is %lf \n", num1, operator, num2, result);
 
     return 0;
 }
