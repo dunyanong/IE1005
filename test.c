@@ -1,25 +1,35 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
+#include <time.h>
 
-int main(void){
-    double degrees,radians, length_a, length_b, length_c;
-    printf("Enter the angle in degrees :");
-    scanf("%lf",&degrees);
+/* BankInterest.c to compute and display interest on bank account */
 
-    radians = 0.0174532925*degrees;
+int main(void) {
+    int period;
+    double amount, int_rate, interest;
 
-    printf("Enter length a :");
-    scanf("%lf",&length_a);
+    /* get the input: amount, int_rate, period */
+    printf("Enter the principal amount deposited (in $): ");
+    scanf("%lf", &amount);
+    printf("Enter the basic annual interest rate (in %%): ");
+    scanf("%lf", &int_rate);
+    printf("Enter the deposit period (in months): ");
+    scanf("%d", &period);
 
-    printf("Enter length b :");
-    scanf("%lf",&length_b);
+    // conditions:
+    if (period >= 15 && period < 24) {
+        int_rate += 1;
+    }
 
-    length_c = sqrt(length_a * length_a + length_b * length_b -(2 * length_a * length_b * cos(radians)));
+    if (period >=24) {
+        int_rate += 1.25;
+    }
 
+    /* compute the interest */
+    interest = amount*(int_rate/100.0)*(period/12.0);
 
-    printf("length c is: %lf\n", length_c);
-
-    
+    /* output the result */
+    printf("The interest due is $%.2f\n\n", interest);
 
     return 0;
 }
