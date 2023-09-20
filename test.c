@@ -2,41 +2,36 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main(void) {
-    double num1, num2, result;
-    char operator;
+double calculate_e(int n) {
+    double result = 1.0;
+    double x = 1.0;
 
-    printf("Enter two numbers and an operator in the form number1 operator number2: ");
-    scanf("%lf %c %lf", &num1, &operator, &num2);
+    for (int i = 1; i < n; i++) {
+        // x value still remain after assigning
+        x *= 1.0 / i;
 
-    // if (operator == '+') {
-    //     result = num1 + num2;
-    // } else if (operator == '-') {
-    //     result = num1 - num2;
-    // } else if (operator == '*' || operator == 'x' || operator == 'X') {
-    //     result = num1 * num2;
-    // } else if (operator == '/') {
-    //     result = num1 / num2;
-    // }
+        // printf("x: %lf, i: %d\n", x, i);
 
-    switch (operator) {
-        case '+':
-            result = num1 + num2;
-            break;
-        case '-':
-            result = num1 - num2;
-            break;  
-        case '*':
-            result = num1 * num2;
-            break;   
-        case '/':
-            result = num1 / num2;
-            break;                               
-        default:
-            break;
+        // confusion?
+        result += x;
     }
 
-    printf("%lf %c %lf is %lf \n", num1, operator, num2, result);
+    return result;
+}
+
+int main() {
+    int n; // Number of terms in the Taylor series
+    printf("Enter the number of terms (n): ");
+    scanf("%d", &n);
+
+    double e_approximation = calculate_e(n);
+    printf("Approximation of e using %d terms: %.15f\n", n, e_approximation);
 
     return 0;
 }
+
+
+
+
+
+
