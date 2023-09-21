@@ -6,5 +6,5 @@ int main() {
     srand(time(0));
     printf("Dice simulator \n");
 
-    printf("Number: %d \n", rand() % 6);
+    printf("Number: %d \n", rand() % 6 + 1);
 }
