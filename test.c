@@ -1,23 +1,38 @@
-#include <stdio.h> 
-#include <string.h> 
-#include <math.h> 
+#include <stdio.h>
+#define N 1000
 
-int main(void) 
+double funct(double x);
+double a, b, c, d;
+
+int main(void)
 {
-    double sincx, firstInput, secondInput,  x, totalInterval;
+    double integral = 0.0;
+    double p, q;
+    double firstX, secondX;
 
-    printf("Enter endpoints a and b (a < b); e.g. -5 5: ");
-    scanf("%lf %lf", &firstInput, &secondInput);
+    printf("Enter coefficient of a b c d: ");
+    scanf("%lf %lf %lf %lf", &a, &b, &c, &d);
 
-    // To divide them into intervals:
-    totalInterval = secondInput - firstInput;
+    printf("Enter lower and higher boundary limits p and q: ");
+    scanf("%lf %lf", &p, &q);
 
-    double stepInterval = totalInterval / 20;
+    firstX = p;
+    double step = (q-p)/N;
 
-    printf("%12s%20s\n", "x", "sinc(x)");
-    for (double x = firstInput; x < totalInterval; x += stepInterval){
-        double sincx = sin(x) / x;
+    for (int i = 0; i < N; i++)
+    {
+        secondX = firstX + step;
 
-        printf("%15.6lf %15.6lf\n", x, sincx);
+        integral += 0.5 * (funct(firstX) + funct(secondX)) * (secondX - firstX);
+        firstX = secondX;
     }
+
+    printf("Ans: %lf\n", integral);
+
+}
+
+// return y value
+double funct(double x)
+{
+    return (a*x*x*x) + (b*x*x) + (c*x) + d;
 }
