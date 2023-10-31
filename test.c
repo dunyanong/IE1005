@@ -1,38 +1,40 @@
 #include <stdio.h>
-#define N 1000
 
-double funct(double x);
-double a, b, c, d;
+int isPrime(int number);
 
-int main(void)
-{
-    double integral = 0.0;
-    double p, q;
-    double firstX, secondX;
+int main() {
+    // check prime number within a range
+    int minimum;
+    int maximum;
 
-    printf("Enter coefficient of a b c d: ");
-    scanf("%lf %lf %lf %lf", &a, &b, &c, &d);
+    printf("Minimum: ");
+    scanf("%d", &minimum);
 
-    printf("Enter lower and higher boundary limits p and q: ");
-    scanf("%lf %lf", &p, &q);
+    printf("Maximum: ");
+    scanf("%d", &maximum);
 
-    firstX = p;
-    double step = (q-p)/N;
-
-    for (int i = 0; i < N; i++)
+    for (int num = minimum; num < maximum; num++)
     {
-        secondX = firstX + step;
-
-        integral += 0.5 * (funct(firstX) + funct(secondX)) * (secondX - firstX);
-        firstX = secondX;
+        if (!isPrime(num))
+            printf("%d\n", num);
     }
 
-    printf("Ans: %lf\n", integral);
-
+    return 0;
 }
 
-// return y value
-double funct(double x)
-{
-    return (a*x*x*x) + (b*x*x) + (c*x) + d;
+int isPrime(int number){
+    if (number == 0 || number == 1) {
+        // return false
+        return 1;
+    }
+
+    for (int i = 2; i < number; i++) {
+        if (number % i == 0) {
+            // return false
+            return 1;
+        }
+    }
+
+    // return true;
+    return 0;
 }
