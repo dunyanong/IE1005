@@ -1,23 +1,40 @@
-#include <stdio.h> 
-#include <string.h> 
-#include <math.h> 
+#include <stdio.h>
 
-int main(void) 
-{
-    double sincx, firstInput, secondInput,  x, totalInterval;
+int isPrime(int number);
 
-    printf("Enter endpoints a and b (a < b); e.g. -5 5: ");
-    scanf("%lf %lf", &firstInput, &secondInput);
+int main() {
+    // check prime number within a range
+    int minimum;
+    int maximum;
 
-    // To divide them into intervals:
-    totalInterval = secondInput - firstInput;
+    printf("Minimum: ");
+    scanf("%d", &minimum);
 
-    double stepInterval = totalInterval / 20;
+    printf("Maximum: ");
+    scanf("%d", &maximum);
 
-    printf("%12s%20s\n", "x", "sinc(x)");
-    for (double x = firstInput; x < totalInterval; x += stepInterval){
-        double sincx = sin(x) / x;
-
-        printf("%15.6lf %15.6lf\n", x, sincx);
+    for (int num = minimum; num < maximum; num++)
+    {
+        if (!isPrime(num))
+            printf("%d\n", num);
     }
+
+    return 0;
+}
+
+int isPrime(int number){
+    if (number == 0 || number == 1) {
+        // return false
+        return 1;
+    }
+
+    for (int i = 2; i < number; i++) {
+        if (number % i == 0) {
+            // return false
+            return 1;
+        }
+    }
+
+    // return true;
+    return 0;
 }
