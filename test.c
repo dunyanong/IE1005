@@ -4,26 +4,23 @@
 #include <math.h>
 #include <time.h>
 
+// reverse integer
 int main() {
-    int rows;
+    int inputNum = 0, remainder = 0, reverse = 0;
+    printf("Input a number: ");
+    scanf("%d", &inputNum);
 
-    // pyramid
-    printf("Number of rows: ");
-    scanf("%d", &rows);
-
-    // number of rows
-    for (int i = 1; i <= rows; i++)
+    while (inputNum != 0)
     {
-        // number of columns
-        for (int j = 1; j <= (2 * rows - 1); j++){
-            if ((j >= rows - (i - 1)) &&  (j <= rows + (i - 1)))
-            {
-                printf("*");
-            } else  {
-                printf(" ");
-            }
-        }
-        printf("\n");
+        remainder = inputNum % 10;
+
+        reverse = reverse * 10;
+
+        reverse = reverse + remainder;
+
+        inputNum = inputNum / 10;
     }
-    return 0;
+
+    printf("%d", reverse);
+    
 }
