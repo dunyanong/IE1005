@@ -4,21 +4,22 @@
 #include <math.h>
 #include <time.h>
 
-int isPalindrome(int x) {
-    if (x < 0) {
-        return 0; // Negative numbers can't be palindromes
+void findPrimeFactors(int n) {
+    while (n % 2 == 0) {
+        printf("2 ");
+        n /= 2;
     }
 
-    int original = x;
-    int reversed = 0;
-
-    while (x > 0) {
-        int digit = x % 10;
-        reversed = reversed * 10 + digit;
-        x /= 10;
+    for (int i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            printf("%d ", i);
+            n /= i;
+        }
     }
 
-    return original == reversed;
+    if (n > 1) {
+        printf("%d ", n);
+    }
 }
 
 int main() {
@@ -26,12 +27,13 @@ int main() {
     printf("Enter an integer: ");
     scanf("%d", &num);
 
-    if (isPalindrome(num)) {
-        printf("%d is a palindrome.\n", num);
+    if (num < 2) {
+        printf("Prime factors are not defined for numbers less than 2.\n");
     } else {
-        printf("%d is not a palindrome.\n", num);
+        printf("Prime factors of %d are: ", num);
+        findPrimeFactors(num);
+        printf("\n");
     }
 
     return 0;
 }
-
