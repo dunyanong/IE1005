@@ -4,23 +4,34 @@
 #include <math.h>
 #include <time.h>
 
-// reverse integer
-int main() {
-    int inputNum = 0, remainder = 0, reverse = 0;
-    printf("Input a number: ");
-    scanf("%d", &inputNum);
-
-    while (inputNum != 0)
-    {
-        remainder = inputNum % 10;
-
-        reverse = reverse * 10;
-
-        reverse = reverse + remainder;
-
-        inputNum = inputNum / 10;
+int isPalindrome(int x) {
+    if (x < 0) {
+        return 0; // Negative numbers can't be palindromes
     }
 
-    printf("%d", reverse);
-    
+    int original = x;
+    int reversed = 0;
+
+    while (x > 0) {
+        int digit = x % 10;
+        reversed = reversed * 10 + digit;
+        x /= 10;
+    }
+
+    return original == reversed;
 }
+
+int main() {
+    int num;
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    if (isPalindrome(num)) {
+        printf("%d is a palindrome.\n", num);
+    } else {
+        printf("%d is not a palindrome.\n", num);
+    }
+
+    return 0;
+}
+
