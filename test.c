@@ -4,52 +4,26 @@
 #include <math.h>
 #include <time.h>
 
-void diamond(int n);
-
 int main() {
-    int firstNum, secondNum, result;
-    char operator;
+    int rows;
 
-    printf("Enter two numbers and an operator in the form number1 operator number2 (e.g. 4 - 2): ");
-    scanf("%d %c %d", &firstNum, &operator, &secondNum);
+    // pyramid
+    printf("Number of rows: ");
+    scanf("%d", &rows);
 
-    printf("The first number is %d\n", firstNum);
-    diamond(firstNum);
-
-    printf("The second number is %d\n", secondNum);
-    diamond(secondNum);
-
-    if (operator ==  '+')
-        result = firstNum + secondNum;
-    
-    if (operator == '-') {
-        result = firstNum - secondNum;
+    // number of rows
+    for (int i = 1; i <= rows; i++)
+    {
+        // number of columns
+        for (int j = 1; j <= (2 * rows - 1); j++){
+            if ((j >= rows - (i - 1)) &&  (j <= rows + (i - 1)))
+            {
+                printf("*");
+            } else  {
+                printf(" ");
+            }
+        }
+        printf("\n");
     }
-    if (operator == '*') {
-        result = firstNum * secondNum;
-    }
-
-    printf("%d %c %d is %d\n", firstNum, operator,secondNum, result);
-    diamond(result);
-
     return 0;
-}
-
-void diamond(int n) {
-    // upper part of diamond
-    for (int i = 0; i < n; i++) {
-        printf("/");
-        printf("\\");
-        printf(" ");
-    }
-
-    printf("\n");
-
-    // lower part of diamond
-    for (int i = 0; i < n; i++) {
-        printf("\\");
-        printf("/");
-        printf(" ");
-    }
-    printf("\n");
 }
