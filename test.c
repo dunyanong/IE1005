@@ -5,36 +5,26 @@
 #include <time.h>
 
 int main() {
-    int a[10] = {1, 2, 3, 4, 5};
-    int temp[10] = {1, 2, 3, 4, 5};
+    int p[3][3] = {
+        {1, 3, -4}, 
+        {1, 1, -2}, 
+        {-1, -2, 5}
+    };
+    int q[3][3] = {
+        {8, 3, 0}, 
+        {3, 10, 2}, 
+        {0, 2, 6}
+    };
+    int r[3][3];
 
-    int max = a[0];
-    int secondMax = a[0];
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            r[i][j] = p[i][j] + q[i][j];
 
-    for (int i = 0; i < sizeof(a)/sizeof(a[0]); i++)
-    {
-        if (a[i] > max) {
-            max = a[i];
+            printf("%d ", r[i][j]);
         }
     }
-
-    // to remove the largest element
-    for (int j = 0; j < sizeof(temp)/sizeof(temp[0]); j++){
-        if (temp[j] == max) {
-            temp[j] = 0;
-            break;
-        }
-    }    
-
-    for (int i = 0; i < sizeof(temp)/sizeof(temp[0]); i++)
-    {
-        if (temp[i] > secondMax) {
-            secondMax = temp[i];
-        }
-    }
-
-    printf("max: %d\n", max);
-    printf("second max: %d\n", secondMax);
+    printf("\n");
 
     return 0;
 }
