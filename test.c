@@ -4,19 +4,41 @@
 #include <math.h>
 #include <time.h>
 
+void print_array(int a[], int arraysize);
+int max_array(const int a[], int arraysize);
+
 int main() {
-    int n[10] = {18, 3, 15, 7, 11, 9, 13, 5, 17, 1};
+    int a[10] = {1,2, 0, 0, 4, 5, 6, 9, 9, 17};
 
-    printf("Histogram\n");
-    printf("Element      Value          Histogram\n");    
+    print_array(a, sizeof(a)/sizeof(a[0]));
 
-    for (int i = 0; i < sizeof(n)/sizeof(n[0]); i++) {
-        printf("%7d %10d          ", i, n[i]);
-        for (int j = 0; j < n[i]; j++) {
-            printf("*");
+    printf("Max Value: %d\n", max_array(a, sizeof(a)/sizeof(a[0])));
+    
+    return 0;
+}
+
+void print_array(int a[], int arraysize){
+    printf("{");
+
+    for (int i = 0; i < arraysize; i++)
+    {
+        if(i == arraysize - 1) {
+            printf("%d", a[i]);
+        } else {
+            printf("%d, ", a[i]);
         }
-        printf("\n");
     }
 
-    return 0;
+    printf("}\n");
+}
+
+int max_array(const int a[], int arraysize){
+    int max = a[0];
+    for (int i = 0; i < arraysize; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+    }
+
+    return max;
 }
