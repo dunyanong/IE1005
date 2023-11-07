@@ -5,15 +5,17 @@
 #include <time.h>
 
 int main() {
-    int year;
+    int n[10] = {18, 3, 15, 7, 11, 9, 13, 5, 17, 1};
 
-    printf("Enter a year: ");
-    scanf("%d", &year);
+    printf("Histogram\n");
+    printf("Element      Value          Histogram\n");    
 
-    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-        printf("%d is a leap year.\n", year);
-    } else {
-        printf("%d is not a leap year.\n", year);
+    for (int i = 0; i < sizeof(n)/sizeof(n[0]); i++) {
+        printf("%7d %10d          ", i, n[i]);
+        for (int j = 0; j < n[i]; j++) {
+            printf("*");
+        }
+        printf("\n");
     }
 
     return 0;
